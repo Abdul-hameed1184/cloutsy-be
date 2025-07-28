@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://worldnumhub.vercel.app",
+  "https://cloutsy.vercel.app/",
 ];
 app.use(cookieParser());
 app.use(
