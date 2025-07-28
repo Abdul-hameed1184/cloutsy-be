@@ -1,22 +1,20 @@
 import express from "express";
 import dotenv from "dotenv";
-import cors from 'cors'
+import cors from "cors";
 import cookieParser from "cookie-parser";
-import authRoutes from "../src/routes/auth.routes.js"
+import authRoutes from "../src/routes/auth.routes.js";
 import { connectDB } from "./lib/db.js";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-
-
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://worldnumhub.vercel.app",
 ];
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -31,9 +29,9 @@ app.use(
   })
 );
 
-app.use('/api/auth', authRoutes)
+app.use("/api/auth", authRoutes);
 
-app.listen(PORT, ()=> {
-  console.log(`server running on port ${PORT} `)
+app.listen(PORT, () => {
+  console.log(`server running on port ${PORT} `);
   connectDB();
-})
+});
